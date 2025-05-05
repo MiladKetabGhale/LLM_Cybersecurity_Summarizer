@@ -1,0 +1,64 @@
+CyberSecSummarizer/
+├── README.md
+├── env.yaml
+├── setup.py
+├── visualization.py
+├── DataPreprocessing/
+│   ├── build_cybersecurity_dataset.py
+│   ├── cyber_dataset.jsonl
+│   ├── data_split.py
+│   ├── evaluate_cyberDataset_summary_quality.py
+│   ├── mitre_corpus_extractor.py
+│   ├── mitre_descriptions.jsonl
+│   ├── summary_gen.py
+│   ├── test.jsonl
+│   ├── train.jsonl
+│   ├── validation.jsonl
+│   └── Documentation.md
+├── GPT2_GroundUp/
+│   ├── config_utils.py
+│   ├── dataset.py
+│   ├── evaluation.py
+│   ├── fine_tune_trained_custom_gpt2.py
+│   ├── gen_eval.py
+│   ├── generate.py
+│   ├── generate_and_evaluate.py
+│   ├── main.py
+│   ├── model.py
+│   ├── model_utils.py
+│   ├── train.py
+│   ├── configs/
+│   ├── data/
+│   ├── GroundUp_ModelTraining_Outcome/
+│   └── Documentation.md
+├── GPT2_Finetuning/
+│   ├── config.py
+│   ├── lora_unified_finetune_retrain.py
+│   ├── unified_finetune_retrain.py
+│   ├── gpt2-finetune-outcome/
+│   ├── lora_gpt2_finetune_outcome/
+│   └── Documentation.md
+└── Summary_Generation_Evaluation/
+    ├── config_loader.py
+    ├── evaluation.py
+    ├── generation.py
+    ├── loaders.py
+    ├── main.py
+    ├── old_new_main.py
+    ├── prompts.py
+    ├── configs/
+    ├── data/
+    ├── Evaluation_Results/
+    │   ├── Finetuned/
+    │   │   └── GPT_Results/
+    │   │       ├── gpt2_ft_lora_test_2025-05-02_20-07-31.jsonl
+    │   │       └── gpt2_ft_test_2025-05-03_17-19-01.jsonl
+    │   └── ZeroShot/
+    │       ├── BART_Results/
+    │       │   └── bart-base_test_results_2025-04-27_15-19-26.jsonl
+    │       └── PEGASUS_Results/
+    │           └── pegasus-xsum_test_2025-04-27_15-43-00.jsonl
+    └── Documentation.md
+└── Performance_Engineering/
+    ├── profile_train.py
+    └── Documentation.md
