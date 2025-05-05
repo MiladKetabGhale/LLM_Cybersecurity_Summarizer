@@ -1,0 +1,6 @@
+model: facebook/bart-base
+data_file: DataPreprocessing/test.jsonl
+lines: []
+max_new_tokens: 100
+evaluation_metric: rouge
+output_dir: Evaluation_Results/ZeroShot/BART_Results 
