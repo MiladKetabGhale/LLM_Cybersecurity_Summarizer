@@ -1,0 +1,28 @@
+tokenizer:
+  name: gpt2
+
+data:
+  dataset_name: wikitext
+  dataset_config: wikitext-103-v1
+  max_length: 256
+  stride: 256
+  batch_size: 6
+
+model:
+  emb_dim: 256
+  context_length: 256
+  n_heads: 4
+  n_layers: 12
+  drop_rate: 0.1          # original
+
+train:
+  learning_rate: 0.0006
+  weight_decay: 0.01       # AdamW decoupled weight decay
+  scheduler: cosine        # choosing LR schedule
+  warmup_ratio: 0.06       # 6% warm-up
+  num_epochs: 20           # giving cosine decay more runway
+  val_every_steps: 8000   # quick-eval frequency
+  step_patience:   4       # checks before skipping rest of epoch
+  patience:        3       # epoch-level patience (already there)
+  val_subset:      0.2     # 20% of val for quick check
+  model_output_path: GroundUp_ModelTraining_Outcome/gpt2_wikitext_256.pt

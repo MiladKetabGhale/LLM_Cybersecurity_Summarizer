@@ -1,0 +1,21 @@
+tokenizer:
+  name: gpt2
+
+data:
+  root: ../DataPreprocessing            # <-- folder with train/validation .jsonl
+  max_length: 256
+  batch_size: 4
+
+model:          # same tiny-GPT params you used before
+  emb_dim: 256
+  context_length: 256
+  n_heads: 4
+  n_layers: 12
+  drop_rate: 0.0
+
+train:
+  learning_rate: 0.00006       # low LR for FT
+  num_epochs: 8
+  patience: 2
+  warmup_ratio: 0.06
+  model_output_path: Custom_Pretrained_GPT2_Finetuning_Outcome/
