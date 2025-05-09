@@ -10,7 +10,7 @@ This repository presents a domain-adapted summarization system which uses GPT-2 
 
 The system has been rigorously benchmarked against popular zero-shot summarization baselines (including BART and Pegasus). The results demonstrate competitive performance while maintaining a lightweight model footprint—despite using considerably fewer parameters than these benchmarks.
 
-Beyond performance, the system’s modular architecture ensures easy extensibility for integrating new models or evaluation metrics. Throughout development, we prioritized reproducibility, transparent evaluation, and hardware-aware optimizations for Apple M1 systems, making the system both research-ready and practically deployable.
+Beyond performance, the system’s modular architecture ensures easy extensibility for integrating new models or evaluation metrics. Throughout development, we prioritized reproducibility, transparent evaluation, and hardware-aware optimizations for Apple M1 systems.
 
 ### System Components
 
