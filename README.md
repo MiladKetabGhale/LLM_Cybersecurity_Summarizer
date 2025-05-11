@@ -87,7 +87,7 @@ Each `documentation.md` provides configuration details and command-line examples
 
 ## Custom GPT-2 (Ground-Up Model)
 
-A core contribution of this project is a **custom GPT-2 model built from the ground up** and trained on **WikiText-103** (103 million tokens). We later fine-tuned it on the curated cybersecurity dataset created during preprocessing.  
+A core contribution of this project is a **custom GPT-2 model built from the ground up** and trained on **WikiText-103** (103 million tokens). We later fine-tuned it on the curated cybersecurity dataset (amounting to 125K tokens) created during preprocessing.  
 The fine-tuned model is benchmarked for direct performance comparison with Hugging Face GPT-2.
 
 ### Model Architecture
@@ -99,7 +99,7 @@ The fine-tuned model is benchmarked for direct performance comparison with Huggi
 | Embedding dimension  | 256             |
 | Context length       | 256             |
 | Dropout              | 0.0             |
-| Total parameters     | ~14.7 million   |
+| Total parameters     | ~22.3 million   |
 
 ## Dataset Preparation & Validation
 
