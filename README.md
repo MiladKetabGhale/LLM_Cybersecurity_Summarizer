@@ -106,7 +106,7 @@ The fine-tuned model is benchmarked for direct performance comparison with Huggi
 We curated a high-quality **cybersecurity summarization dataset** through a multi-stage pipeline:
 
 1. **Corpus extraction:**  
-   - Scraped **435 entries** from [MITRE ATT&CK](https://attack.mitre.org) using a custom extraction script.
+   - Scraped **435 entries** (amounting to 125K tokens) from [MITRE ATT&CK](https://attack.mitre.org) using a custom extraction script.
 2. **Gold summary generation:**  
    - Generated reference (“gold”) summaries for each entry using a **locally deployed Distilled DeepSeek R1 (LLaMA 7B)** model via tailored prompt engineering.
 3. **Validation process:**
