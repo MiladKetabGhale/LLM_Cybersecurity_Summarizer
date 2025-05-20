@@ -38,7 +38,7 @@ This repository provides documentation at three levels:
 3. **Tier 3 – Inline docstrings and code comments (inside Python scripts):**  
    Function-level documentation for developers modifying or extending the code.
 
-_A detailed system architecture diagram and description are provided in [Architecture.me](https://github.com/MiladKetabGhale/LLM_Cybersecurity_Summarizer/blob/main/Architecture.me) (replace this link)._
+_A detailed system architecture diagram and description are provided in [Architecture.me](https://github.com/MiladKetabGhale/LLM_Cybersecurity_Summarizer/blob/main/Architecture.me).
 
 ## Installation & Quick-Start
 
