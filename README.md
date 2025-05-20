@@ -44,7 +44,7 @@ _A detailed system architecture diagram and description are provided in [Archite
 
 ## Requirements
 
-This system requires Python 3.9+ and standard ML dependencies listed in `requirements.txt`.  
+This system requires Python 3.10+ and standard ML dependencies listed in `requirements.txt`.  
 Tested on macOS (Apple Silicon M1/M2) and Intel CPUs. See [Hardware Specifications](#hardware-specifications) for details.
 
 ### Setup
@@ -52,14 +52,14 @@ Tested on macOS (Apple Silicon M1/M2) and Intel CPUs. See [Hardware Specificatio
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/cybersecurity-summarizer.git
-   cd cybersecurity-summarizer
+   git clone git@github.com:MiladKetabGhale/LLM_Cybersecurity_Summarizer.git
+   cd LLM_Cybersecurity-Summarizer
    ```
 
 2. **Create a conda environment:**
 
    ```bash
-   conda create -n cyber_summarizer python=3.9
+   conda create -n cyber_summarizer python=3.10
    conda activate cyber_summarizer
    ```
 
