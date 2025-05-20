@@ -135,7 +135,7 @@ We benchmarked the models on the curated cybersecurity dataset:
 | Pegasus (zero-shot)      | 568M total      | 0.1914   | 0.0528   | 0.1402   |
 
 Fine-tuned GPT-2 significantly reduced the gap to BART zero-shot.  
-LoRA fine-tuning achieved ~99% of full fine-tuned ROUGE-1 performance with <1% parameters fine tuned.
+LoRA fine-tuning achieved ~80% of full fine-tuned ROUGE-1 performance with <1% parameters fine tuned.
 
 ### Performance Engineering
 
