@@ -153,7 +153,6 @@ This project was developed and tested on the following system:
 
 - **Model Name:** MacBook Pro
 - **Model Identifier:** MacBookPro18,1
-- **Model Number:** MK183X/A
 - **Chip:** Apple M1 Pro
 - **CPU:** 10-core CPU (8 performance cores + 2 efficiency cores)
 - **GPU:** 16-core integrated GPU (Apple M1 Pro, Metal GPUFamily Apple 7)
