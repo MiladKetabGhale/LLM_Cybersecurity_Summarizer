@@ -13,7 +13,7 @@
       max_new_tokens:     128
       evaluation_metric:  rouge               # rouge | bleu | meteor
   
-  Run:  python summariser_unified.py --config summariser.yaml
+  Run:  python main.py --config confis/<yaml file you want to evaluate its model>
   """
 
 from __future__ import annotations
@@ -89,11 +89,28 @@ def run(cfg: Dict[str, Any]):
             sample = data[ln - 1]
             source, gold = sample["source"], sample["summary"]
 
+            inference_time_ms = None  # Predeclare for safety
+ 
             if is_decoder_only(model_key):
                 prompt = gpt2_prompt(source)
-                pred = generate_decoder(model, tok, prompt, cfg["max_new_tokens"])
+                inputs = tok(prompt, return_tensors="pt").to(device)
             else:
-                pred = generate_seq2seq(model, tok, source, cfg["max_new_tokens"])
+                inputs = tok(source, return_tensors="pt").to(device)
+ 
+            start = time.time()
+            output_ids = model.generate(**inputs, max_new_tokens=cfg["max_new_tokens"])
+            end = time.time()
+ 
+            inference_time_ms = (end - start) * 1000
+            pred = tok.decode(output_ids[0], skip_special_tokens=True)
+ 
+            # Token counts
+            input_tokens = inputs["input_ids"].shape[1]
+            if is_decoder_only(model_key):
+                output_tokens = output_ids.shape[1] - input_tokens
+            else:
+                output_tokens = output_ids.shape[1]
+             
 
             print("\n──────── LINE", ln, "────────")
             print("SOURCE:", source)
@@ -102,6 +119,7 @@ def run(cfg: Dict[str, Any]):
 
             scores = score(pred, gold, cfg["evaluation_metric"])
             print("SCORES:")
+           
             for k, v in scores.items():
                 print(f"  {k:<8}: {v:.4f}")
                 aggregated_scores.setdefault(k, []).append(v)
@@ -109,7 +127,11 @@ def run(cfg: Dict[str, Any]):
             json.dump({
                 "line": ln,
                 "model": model_key,
-                "scores": scores
+                "scores": scores,
+                "inference_time_ms": round(inference_time_ms, 2),
+                "input_tokens": input_tokens,
+                "output_tokens": output_tokens,
+                "time_per_token_ms": round(inference_time_ms / max(output_tokens, 1), 2)
             }, f)
             f.write("\n")
 
