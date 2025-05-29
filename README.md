@@ -137,6 +137,19 @@ We benchmarked the models on the curated cybersecurity dataset:
 Fine-tuned GPT-2 significantly reduced the gap to BART zero-shot.  
 LoRA fine-tuning achieved ~80% of full fine-tuned ROUGE-1 performance with <1% parameters fine tuned.
 
+#### Inference Time Comparison
+
+To complement evaluation metrics (ROUGE), we benchmarked inference time, input/output lengths, and token efficiency for each model:
+
+| Metric               | BART-base            | Pegasus               | GPT-2 (Fully Fine-tuned)         | GPT-2 (LoRA Fine-tuned) |
+|----------------------|----------------------|-----------------------|----------------------------------|-------------------------|
+| Inference time     | 3357.71 ms (≈3.36 sec) | 3971.57 ms (≈3.97 sec)| 2356.73 ms (≈2.36 sec)           | ~2356.73 ms (≈2.36 sec) |
+| Input tokens       | 211.75 tokens          | 204.87 tokens         | 252.88 tokens                    | 252.88 tokens           |
+| Output tokens      | 98.67 tokens           | 23.28 tokens          | 100.00 tokens                    | 100.00 tokens           |
+| Time per token     | 34.13 ms/token         | 181.56 ms/token       | 23.57 ms/token                   | ~23.57 ms/token         |
+
+> **Note:** The LoRA-based GPT-2 model shows no difference in two decimal points in inference time compared to full fine-tuning. This is *expected behavior* because LoRA modifies only a small subset of trainable parameters, and—when merged into the base model—it does **not introduce runtime overhead**.
+
 ### Performance Engineering
 
 We optimized training on Apple M1 hardware:
