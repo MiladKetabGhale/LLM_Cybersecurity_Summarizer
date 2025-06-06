@@ -1,6 +1,6 @@
 model: gpt2_local
-model_dir: /Users/hira/Milad/ML/Staging_Ni-a_CyberSec_Summarizer/GPT2_GroundUp/Custom_Pretrained_GPT2_Finetuning_Outcome     # ← FT_GPT2_BEST_MODEL_DIR
-data_file: DataPreprocessing/test.jsonl
+model_dir: LLM_Cybersecurity_Summarizer/GPT2_GroundUp/Custom_Pretrained_GPT2_Finetuning_Outcome     # ← FT_GPT2_BEST_MODEL_DIR
+data_file: LLM_Cybersecurity_Summarizer/DataPreprocessing/test.jsonl
 lines: []                   # which example‑lines to sample
 max_new_tokens: 100
 evaluation_metric: rouge

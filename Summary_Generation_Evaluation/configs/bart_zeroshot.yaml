@@ -1,5 +1,5 @@
 model: facebook/bart-base
-data_file: DataPreprocessing/test.jsonl
+data_file: LLM_Cybersecurity_Summarizer/DataPreprocessing/test.jsonl
 lines: []
 max_new_tokens: 100
 evaluation_metric: rouge

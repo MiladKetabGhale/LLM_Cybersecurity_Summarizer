@@ -1,6 +1,6 @@
 model: gpt2_ft_lora
-model_dir: /Users/hira/Milad/Ml/Staging_Ni-a_CyberSec_Summarizer/GPT2_Finetuning/lora_gpt2_finetune_outcome/best_model      # ← FT_GPT2_LORA_BEST_MODEL_DIR
-data_file: DataPreprocessing/test.jsonl
+model_dir: LLM_Cybersecurity_Summarizer/GPT2_Finetuning/lora_gpt2_finetune_outcome/best_model      # ← FT_GPT2_LORA_BEST_MODEL_DIR
+data_file: LLM_Cybersecurity_Summarizer/DataPreprocessing/test.jsonl
 lines: []                   # which example‑lines to sample
 max_new_tokens: 100
 evaluation_metric: rouge
