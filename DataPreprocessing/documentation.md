@@ -14,6 +14,7 @@ This module provides a reproducible data preparation pipeline for training summa
 The main orchestration script for this module is:
 
 ```bash
+python DataPreprocessing/mitre_corpus_extrator.py
 python DataPreprocessing/build_cybersecurity_dataset.py
 ```
 
