@@ -12,3 +12,6 @@ tiktoken==0.9.0
 torch==2.6.0
 transformers==4.51.3
 tqdm==4.67.1
+peft==0.15.2
+datetime==5.5
+beautifulsoup4==4.13.3
