@@ -121,7 +121,8 @@ This dataset was subsequently used to fine-tune both the **custom ground-up GPT-
 
 ## Evaluations and Performance Optimizations
 
-Below we report benchmark results, describe the engineering optimizations that enabled them, and specify the hardware context to aid reproducibility.
+Below we report benchmark results, describe the engineering optimizations that enabled them, and specify the hardware context to aid reproducibility. ***Please note that 
+the benchmarks are soon going to be updated based on results obtained with a different system using a single NVIDIA GPU (RTX3060)***.
 
 ### Benchmark Results
 
