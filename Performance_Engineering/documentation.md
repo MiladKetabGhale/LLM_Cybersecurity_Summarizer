@@ -1,4 +1,8 @@
 <!-- Performance_Engineering/documentation.md -->
+# Remark
+
+The Performance Engineering component is under development currently. Summaries of each stage as well as detailed results are to be produces as planned step by step. As a result, the structuring of this component will be adjusted accordingly. 
+
 # Performance Engineering & Optimisation
 
 Several initial optimisations (multithreaded dataloading, M1‑specific GPU utilisation, etc.) have already been implemented — see the Performance Engineering notes in the main README.md. A deeper, end‑to‑end analysis will follow once the May roadmap items (distillation, quantisation, latency tuning, etc.) have landed.
