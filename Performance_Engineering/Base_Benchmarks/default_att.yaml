@@ -1,0 +1,15 @@
+- name: default_att             # (string) Unique name for the run
+  model_name: gpt2                # (string) Hugging Face model ID
+  precision: fp16                 # (string) "fp16" or "fp32"
+  compile: true                   # (bool) Enable torch.compile
+  compile_mode: max-autotune           # (string) "default", "reduce-overhead", or "max-autotune"
+  attn_backend: sdpa           # (string) "default", "flash", "sdpa", "xformers"
+  batch_size: 3                   # (int) per-step batch size
+  layers: 12                      # (int, optional) override GPT-2 layer count
+  heads: 12                       # (int, optional) override GPT-2 attention heads
+  use_amp: true                   # (bool, optional) whether to use AMP (defaults true if precision == "fp16")
+  padding: max_length             # max_length alternatively for static padding
+  max_length: 768
+
+
+
