@@ -32,15 +32,8 @@ from transformers import (
     DataCollatorForLanguageModeling,
 )
 
-try:
-    import psutil
-except ImportError:
-    psutil = None
-
-try:
-    import yaml
-except ImportError:
-    yaml = None
+import psutil
+import yaml
 
 from torch.profiler import record_function
 
@@ -48,7 +41,7 @@ _BACKEND_MAP = {
     "default": {},
     "flash": {"attn_implementation": "flash_attention_2"},
     "sdpa": {"attn_implementation": "sdpa"},
-    "xformers": {"attn_implementation": "xformers"},
+    "xformers": {"attn_implementation": "xformers"}
 }
 
 class JsonlDataset(Dataset):
