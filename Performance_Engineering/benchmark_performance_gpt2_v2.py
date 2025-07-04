@@ -10,16 +10,13 @@ from transformers import (
     DataCollatorForLanguageModeling,
 )
 
-try:
-    import yaml
-except ImportError:
-    yaml = None
+import yaml
 
 _BACKEND_MAP = {
     "default": {},
     "flash": {"attn_implementation": "flash_attention_2"},
     "sdpa": {"attn_implementation": "sdpa"},
-    "xformers": {"attn_implementation": "xformers"},
+    "xformers": {"attn_implementation": "xformers"}
 }
 
 class JsonlDataset(Dataset):
@@ -163,9 +160,20 @@ def main():
 
     loaders = {}
     fieldnames = [
-        "name", "model_name", "precision", "compile", "attn_backend", "batch_size",
-        "steps", "avg_step_time", "tokens_per_sec", "max_vram",
-        "compile_warmup_time", "gpu_utilization_avg", "padding", "max_length"
+        "name", 
+        "model_name", 
+        "precision", 
+        "compile", 
+        "attn_backend", 
+        "batch_size",
+        "steps", 
+        "avg_step_time", 
+        "tokens_per_sec", 
+        "max_vram",
+        "compile_warmup_time", 
+        "gpu_utilization_avg", 
+        "padding", 
+        "max_length"
     ]
 
     new_file = not os.path.exists(args.csv)
