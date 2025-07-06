@@ -1,0 +1,10 @@
+- model_name: "gpt2"
+  precision: "fp16"
+  compile: "true"
+  compile_mode: "default"
+  attn_backend: "default"
+  batch_size: 6
+  layers: 12
+  heads: 12
+  padding: "max_length"
+  max_length: 768
