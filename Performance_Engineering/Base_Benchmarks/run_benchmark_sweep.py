@@ -3,6 +3,13 @@
 run_benchmark_sweep.py
 Launches benchmark_performance_gpt2_v2.py for every Cartesian combination
 defined in a sweep_config.yaml.
+
+Running the script:
+python run_benchmark_sweep.py \
+    --sweep_config sweep_config.yaml \
+    --dataset ../../DataPreprocessing/train.jsonl \
+    --output_csv results.csv \  
+    --delay 40
 """
 
 import argparse
@@ -79,7 +86,7 @@ def run_benchmark_for_cfg(
         yaml.dump([cfg], tmp)
         tmp_path = tmp.name
 
-    print(f"\n▶️  Running: {cfg['name']}")
+    print(f"\n Running: {cfg['name']}")
 
     try:
         result = subprocess.run(
@@ -99,7 +106,7 @@ def run_benchmark_for_cfg(
             text=True,
         )
         if result.returncode != 0:
-            print(f"❌ Failed: {cfg['name']}  (return code {result.returncode})")
+            print(f"Failed: {cfg['name']}  (return code {result.returncode})")
 
     finally:
         os.remove(tmp_path)
@@ -142,7 +149,7 @@ def main():
     for cfg in cartesian_product(sweep_cfg):
         # Example guard: skip meaningless combos
         if not cfg.get("compile", False) and cfg.get("compile_mode") not in (None, "default"):
-            print(f"↩️  Skipping {cfg} (compile_mode meaningless without compile=True)")
+            print(f"Skipping {cfg} (compile_mode meaningless without compile=True)")
             continue
 
         run_benchmark_for_cfg(
