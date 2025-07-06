@@ -92,3 +92,7 @@ Values are absolute, not percentage-normalised. Bigger batches will naturally sk
 
 - **Need rock-solid latency for pipelined or distributed jobs?**  
   ➤ Use `def | bs=2 | compile=True`
+
+---
+## Remarks
+In some of the digrams, corresponding measurements for batch size of 4 when no compilation is chosen do not appear. The main reason is that the GPU runs out of the space. Hence we cannot produce comparable results on the same machine for them. Also we have excluded the batch size of 5 from the digrams. The results however are available [here](https://github.com/MiladKetabGhale/LLM_Cybersecurity_Summarizer/blob/main/Performance_Engineering/Base_Benchmarks/results.csv).
