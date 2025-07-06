@@ -24,7 +24,7 @@ _Last updated: **May 2025** • Target release: **v0.2**_
 
 ---
 
-## 🗓️ May 2025 Roadmap
+## 🗓️ Roadmap
 
 <details>
 <summary><strong>Checklist</strong> (expand)</summary>
@@ -40,22 +40,31 @@ _Last updated: **May 2025** • Target release: **v0.2**_
 
 ### Milestone table
 
-| Week (May 2025) | Deliverable | Owner | Notes |
+| Week (July 2025) | Deliverable | Owner | Notes |
 |-----------------|-------------|-------|-------|
-| May 6 – 10      | Distillation script (`distill.py`) | @you | teacher = full GPT‑2‑scratch |
-| May 11 – 17     | ONNX INT8 quant + latency report   | @you | depends on distill.py |
-| May 18 – 24     | Data‑prep refactor & benchmarks    | @you | pandas → multiprocessing |
-| May 25 – 31     | Memory optimisation & final doc PR | @you | includes profiling figures |
+| July 6 – 10      | Distillation script (`distill.py`) | @you | teacher = full GPT‑2‑scratch |
+| July 11 – 17     | ONNX INT8 quant + latency report   | @you | depends on distill.py |
+| July 18 – 24     | Data‑prep refactor & benchmarks    | @you | pandas → multiprocessing |
+| July 25 – 31     | Memory optimisation & final doc PR | @you | includes profiling figures |
 
 > **Tooling**: We will rely on *PyTorch 2.3*, *onnxruntime‑gpu*, and *PyTorch Profiler*.
 
 ---
+## Machine Used For Benchmarking and Performance Engineering
 
-## Future sections (will appear as PRs land)
+**Operating System**
+- Ubuntu 22.04.5 LTS (Jammy Jellyfish)
 
-```text
-Performance_Engineering/
-├── distill.py                  # knowledge‑distillation driver
-├── quantize_onnx.py            # export + INT8 calibration
-├── perf_latency.ipynb          # latency profiling notebook
-└── README_perf_results.md      # side‑by‑side before/after metrics
+**CPU**
+- Model: 11th Gen Intel(R) Core(TM) i7-11800H @ 2.30GHz
+- Architecture: x64, 8 physical cores, 16 threads
+- Max Frequency: 4.6 GHz
+
+**Memory**
+- Total System RAM: 32GB
+
+**GPU**
+- Model: NVIDIA GeForce RTX 3060 Laptop GPU
+- CUDA Version: 12.8
+- VRAM: 6 GB
+- Driver: 570.133.07
