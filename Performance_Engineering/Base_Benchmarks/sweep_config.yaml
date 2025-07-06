@@ -1,9 +1,9 @@
 model_name: ["gpt2"]
 precision: ["fp16"] # fp32
-compile: [true, false]
+compile: [false, true]
 compile_mode: ["default", "reduce-overhead"] # max-autotune can be used as well
 attn_backend: ["default"]
-batch_size: [2,3,4,5]
+batch_size: [1,2,3,4,5]
 layers: [12]
 heads: [12]
 padding: ["max_length"]
