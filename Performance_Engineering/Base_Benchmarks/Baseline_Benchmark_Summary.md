@@ -12,6 +12,8 @@ Throughput (tokens · s⁻¹) is the raw speed at which the model can crank out 
 **Why that matters & caveats**  
 The gain is noticeable, but we paid for it with +34% VRAM and the highest step-time jitter of the pack (see section 5). If the GPU one has at their disposal is only an 8GB laptop card, this config is a non-starter. Also note that Torch Compile’s warm-up cost (0.71 s) is negligible for the 500-step run, but on a 20-step interactive notebook it would never break even.
 
+![Tokens per sec vs Batch size](../Figures/throughput_scaling.png)
+
 ---
 
 ## 2 · Memory Footprint: `max_vram` vs `batch_size`
@@ -26,6 +28,8 @@ Peak VRAM is the hard wall that decides whether our job fits on-device or spills
 This config gives ~86% speed-up over the baseline while adding only ~150 MB over the 3× smaller baseline batch, so it is the sweet spot if one cares about throughput-per-byte.  
 
 **Risk:** we are now inside Torch Compile’s graph-rewriting path, code that mutates the model between calls will silently trigger a costly re-compile.
+
+![Memory footprint vs Batch size](../Figures/mem_footprint_bs.png)
 
 ---
 
@@ -42,6 +46,8 @@ Torch Compile (and its “reduce-overhead” mode) buys lower steady-state laten
 
 Going to `ro` had worse step-time for `bs=1–3`, and the giant `bs=5` run, while fast in throughput, adds 0.28 s latency per step — a non-starter for online inference.
 
+![Compiler warmup time vs Average step time](../Figures/warmup_avg_step_sz.png)
+
 ---
 
 ## 4 · Speed-up Leaderboard: %Δ `tokens_per_sec` vs baseline
@@ -53,6 +59,8 @@ A single glance ranking that tells recruiters (or your CFO) which knob combo ext
 `ro | bs=5 | compile=True` at **+93%**
 
 But this is exactly the config that also tops the VRAM and jitter charts. If one runs mixed workloads or have tight latency SLOs, the silver medallist (`def | bs=3`) is probably the more balanced choice.
+
+![Speedup](../Figures/speed_vs_bs.png)
 
 ---
 
@@ -69,6 +77,8 @@ For synchronous multi-GPU training that’s often the price worth paying.
 
 **Risk of mis-reading this plot**  
 Values are absolute, not percentage-normalised. Bigger batches will naturally skew higher just because their step time is longer. For apples-to-apples, divide by the config’s own step time and re-plot a relative jitter percentage.
+
+![jitter](../Figures/jitter.png)
 
 ---
 
