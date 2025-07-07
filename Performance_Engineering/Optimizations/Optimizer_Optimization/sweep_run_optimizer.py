@@ -31,7 +31,7 @@ def generate_cfg(base: dict, opt: str) -> dict:
     cfg["optimizer"] = opt
     cfg["name"] = f"{cfg['model_name']}_{opt}_{cfg['batch_size']}"
 
-    # ✨ Only enable DeepSpeed for fusedadam
+    # Only enable DeepSpeed for fusedadam
     if opt.lower() == "fusedadam":
         cfg["use_deepspeed"] = True
     else:
@@ -131,10 +131,9 @@ def main() -> None:
         time.sleep(args.wait)
 
     if failures:
-        print("\n⚠️  Failed runs:", ", ".join(failures))
+        print("\n Failed runs:", ", ".join(failures))
         sys.exit(1)
-    print("\n✅  Sweep finished cleanly.")
+    print("\n Sweep finished cleanly.")
 
 if __name__ == "__main__":
     main()
-
