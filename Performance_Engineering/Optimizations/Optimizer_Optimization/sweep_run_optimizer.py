@@ -30,6 +30,9 @@ def generate_cfg(base: dict, opt: str) -> dict:
     cfg = copy.deepcopy(base)
     cfg["optimizer"] = opt
     cfg["name"] = f"{cfg['model_name']}_{opt}_{cfg['batch_size']}"
+    
+    cfg["layers"] = base.get("layers", 12)
+    cfg["heads"] = base.get("heads", 12)
 
     # Only enable DeepSpeed for fusedadam
     if opt.lower() == "fusedadam":

@@ -76,7 +76,7 @@ _BACKEND_MAP = {
 }
 
 class JsonlDataset(Dataset):
-    def __init__(self, path: str, tokenizer, max_length: int = 768, padding: str = "longest"):
+    def __init__(self, path: str, tokenizer, max_length: int = 768, padding: str = "max_length"):
         self.tokenizer = tokenizer
         self.max_length = max_length
         self.padding = padding
@@ -101,7 +101,7 @@ class JsonlDataset(Dataset):
         return self.samples[idx]
 
 def get_loader(path: str, tokenizer, batch_size: int, cfg: Dict[str, Any]):
-    padding = cfg.get("padding", "longest")
+    padding = cfg.get("padding", "max_length")
     max_length = int(cfg.get("max_length", 768))
     ds = JsonlDataset(path, tokenizer, max_length=max_length, padding=padding)
     collator = DataCollatorForLanguageModeling(tokenizer, mlm=False)
